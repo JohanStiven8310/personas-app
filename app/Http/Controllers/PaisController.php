@@ -129,3 +129,4 @@ class PaisController extends Controller
         return view ('pais.index' , ['paises' => $paises]);
     }
 }
+}
