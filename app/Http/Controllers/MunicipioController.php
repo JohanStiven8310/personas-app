@@ -58,5 +58,31 @@ class MunicipioController extends Controller
         return view('municipio.index', ['municipios' => $municipios]);
 
     }
-}
+/**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
 
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $municipio = Municipio::find($id);
+        $departamentos = DB::table('tb_departamento')
+        ->orderBy('depa_nomb')
+        ->get();
+
+        return view ('municipio.edit' , ['municipio' => $municipio, 'departamentos' => $departamentos]);
+    }
+
+   
