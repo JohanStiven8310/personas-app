@@ -61,4 +61,32 @@ class ComunaController extends Controller
         return view ('comuna.index' , ['comunas' => $comunas]);
     }
 
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $comuna = Comuna::find($id);
+        $municipios = DB::table('tb_municipio')
+        ->orderBy('muni_nomb')
+        ->get();
+
+        return view ('comuna.edit' , ['comuna' => $comuna, 'municipios' => $municipios]);
+    ]
+    }
 }
+
