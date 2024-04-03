@@ -24,4 +24,17 @@ class DepartamentoController extends Controller
         return view('departamento.index', ['departamentos' => $departamentos]);
     }
 
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        $paises = DB::table('tb_pais')
+            ->orderBy('pais_nomb')
+            ->get();
+        return view('departamento.new', ['paises' => $paises]);
+    }
+
 }
