@@ -22,4 +22,19 @@ class PaisController extends Controller
         return view('pais.index' , ['paises' =>$paises]);
 
     }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        $municipios = DB::table('tb_municipio')
+        ->orderBy('muni_nomb')
+        ->get();
+
+        return view ('pais.new' , ['municipios' => $municipios]);
+    }
+
 }
